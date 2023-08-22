@@ -1,0 +1,26 @@
+load("@io_bazel_rules_kotlin//kotlin:js.bzl", "kt_js_library")
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+kt_jvm_library(
+    name = "jvm",
+    srcs = glob(
+        ["*.kt"],
+        exclude = ["*_js.kt"],
+    ),
+    deps = [
+    ],
+)
+
+kt_js_library(
+    name = "js",
+    srcs = glob(
+        ["*.kt"],
+        exclude = ["*_jvm.kt"],
+    ),
+    deps = [
+    ],
+)
